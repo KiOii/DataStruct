@@ -9,7 +9,7 @@
 */
 typedef enum
 {
-	OK			=  0,
+	OK		=  0,
 	ERROR		= -1,
 	FOUND		=  1
 }Status;
@@ -17,17 +17,17 @@ typedef struct node_ *PNode;
 typedef PNode PFirst, PLast;
 typedef struct node_
 {
-	void       *mData;
-	PNode       mpNext;
+	void         *mData;
+	PNode         mpNext;
 }node;
 typedef unsigned int Size;
 typedef struct LinkList2_0
 {
 
-	PFirst		  mpHead;
-	PLast		    mpTail;
+	PFirst       mpHead;
+	PLast        mpTail;
 
-	Size        muLength;
+	Size         muLength;
 
 	int(*_destroy)(void*);  // control the data-life-cycle.
 	int(*_make)(void**);    // before you make node,you must _make(...) data.
@@ -39,7 +39,7 @@ Param :In order to give the new LinkList-body-address to external PLinkList and 
 Time  :O(1).
 Return:Status (OK: usually malloc(...) be called successfully)
 */
-Status InitList(PLinkList *pL,int(*destroy)(void*),int(*_make)(void**));
+Status InitList(PLinkList *pL,int(*destroy)(void*),int(*make)(void**));
 
 /*
 To-Do  :Destroying the LinkList-body.
